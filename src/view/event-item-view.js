@@ -3,9 +3,14 @@ import { createPointTemplate } from './templates/event-item-template.js';
 
 
 export default class PointView {
+  constructor({point, offers, destination}) {
+    this.point = point;
+    this.offers = offers;
+    this.destination = destination;
+  }
 
   getTemplate() {
-    return createPointTemplate();
+    return createPointTemplate(this.point, this.offers, this.destination);
   }
 
   getElement() {
