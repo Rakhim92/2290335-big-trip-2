@@ -17,17 +17,20 @@ export default class BoardPresenter {
   }
 
   init() {
-    this.boardPoints = [...this.pointModel.getPoint()];
+    this.boardPoints = [...this.pointModel.getAllPoints()];
+    // Начальный рендер: сортировка и пустой список
     render(this.sortComponent, this.container, RenderPosition.AFTERBEGIN);
     render(this.EventListComponent, this.container);
-    // render(this.EditMenuComponent, this.EventListComponent.getElement());
+
+    // Рендер первого поинта
     render(new EditMenu({
       point: this.boardPoints[0],
       checkedOffers: [...this.pointModel.getOfferById(this.boardPoints[0].type, this.boardPoints[0].offers)],
-      offers: this.pointModel.getOfferByTipe(this.boardPoints[0].type),
+      offers: this.pointModel.getOffersByType(this.boardPoints[0].type),
       destination: this.pointModel.getDestinationById(this.boardPoints[0].destination)
     }), this.EventListComponent.getElement());
 
+    // Рендер последующих поинтов
     for (let i = 1; i < this.boardPoints.length; i++) {
       render(new PointView({
         point: this.boardPoints[i],
