@@ -9,7 +9,7 @@ export default class BoardPresenter {
   sortComponent = new SortView();
   EventListComponent = new EventList();
   CreationMenuComponent = new CreationMenu();
-  EditMenuComponent = new EditMenu();
+  // EditMenuComponent = new EditMenu();
 
   constructor({ container, pointModel }) {
     this.container = container;
@@ -29,7 +29,8 @@ export default class BoardPresenter {
       destination: this.pointModel.getDestinationById(this.boardPoints[0].destination),
       checkedOffers: [...this.pointModel.getOfferById(this.boardPoints[0].type, this.boardPoints[0].offers)]
     }), this.EventListComponent.getElement());
-
+    // console.log(this.boardPoints[0]);
+    // console.log(this.pointModel.getDestinationById(this.boardPoints[0].destination));
     // Рендер последующих поинтов
     for (let i = 1; i < this.boardPoints.length; i++) {
       render(new PointView({
@@ -38,7 +39,6 @@ export default class BoardPresenter {
         destination: this.pointModel.getDestinationById(this.boardPoints[0].destination)
       }), this.EventListComponent.getElement());
     }
-
     render(this.CreationMenuComponent, this.container);
   }
 }
