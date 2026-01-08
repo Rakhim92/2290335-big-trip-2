@@ -1,5 +1,5 @@
-import { createElement } from '../render.js';
-import { createPointTemplate } from './templates/event-item-template.js';
+import { createElement } from '../../render.js';
+import { createPointTemplate } from './event-item-template.js';
 
 
 export default class PointView {

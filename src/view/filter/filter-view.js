@@ -1,10 +1,10 @@
-import { createElement } from '../render.js';
-import { createEditMenuTemplate } from './templates/form-edit-template.js';
+import { createElement } from '../../render.js';
+import { createHeaderFiltersTemplate } from './filter-template.js';
 
-export default class EditMenu {
+export default class HeaderFiltersView {
 
   getTemplate() {
-    return createEditMenuTemplate();
+    return createHeaderFiltersTemplate();
   }
 
   getElement() {

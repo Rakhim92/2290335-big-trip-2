@@ -1,10 +1,10 @@
-import { createElement } from '../render.js';
-import { createListTemplate } from './templates/event-list-template.js';
+import { createElement } from '../../render.js';
+import { createCreationMenuTemplate } from './form-create-template.js';
 
-export default class EventList {
+export default class CreationFormView {
 
   getTemplate() {
-    return createListTemplate();
+    return createCreationMenuTemplate();
   }
 
   getElement() {
