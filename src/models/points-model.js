@@ -5,6 +5,11 @@ import { getRandomPoint } from '../mock/points.js';
 const POINTS_COUNT = 3;
 
 export default class PointModel {
+  // async init() {
+  //   this.points = await Array.from({length: POINTS_COUNT}, getRandomPoint);
+  //   this.offers = await mockOffers;
+  //   this.destinations = await mockDestinations;
+  // }
   points = Array.from({length: POINTS_COUNT}, getRandomPoint);
   offers = mockOffers;
   destinations = mockDestinations;

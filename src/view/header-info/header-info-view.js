@@ -1,7 +1,7 @@
 import { createElement } from '../../render.js';
 import { createHeaderInfoTemplate } from './header-info-template.js';
 
-export default class HeaderInfo {
+export default class HeaderInfoView {
 
   getTemplate() {
     return createHeaderInfoTemplate();

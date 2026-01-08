@@ -1,7 +1,7 @@
 import { createElement } from '../../render.js';
 import { createListTemplate } from './event-list-template.js';
 
-export default class EventList {
+export default class PointListView {
 
   getTemplate() {
     return createListTemplate();

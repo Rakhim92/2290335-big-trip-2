@@ -1,7 +1,7 @@
 import { createElement } from '../../render.js';
 import { createCreationMenuTemplate } from './form-create-template.js';
 
-export default class CreationMenu {
+export default class CreationFormView {
 
   getTemplate() {
     return createCreationMenuTemplate();

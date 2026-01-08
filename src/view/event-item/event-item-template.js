@@ -35,10 +35,12 @@ function createPointTemplate(point, offers, destination) {
         <p class="event__price">
           &euro;&nbsp;<span class="event__price-value">${basePrice}</span>
         </p>
-        <h4 class="visually-hidden">Offers:</h4>
-        <ul class="event__selected-offers">
-          ${offers.map((offer) => createOfferTemplate(offer)).join('')}
-        </ul>
+        ${offers.length > 0 ? `
+          <h4 class="visually-hidden">Offers:</h4>
+          <ul class="event__selected-offers">
+            ${offers.map((offer) => createOfferTemplate(offer)).join('')}
+          </ul>
+        ` : ''}
         <button class="event__favorite-btn ${isFavorite && 'event__favorite-btn--active'}" type="button">
           <span class="visually-hidden">Add to favorite</span>
           <svg class="event__favorite-icon" width="28" height="28" viewBox="0 0 28 28">

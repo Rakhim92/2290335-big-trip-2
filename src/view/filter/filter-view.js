@@ -1,7 +1,7 @@
 import { createElement } from '../../render.js';
 import { createHeaderFiltersTemplate } from './filter-template.js';
 
-export default class HeaderFilters {
+export default class HeaderFiltersView {
 
   getTemplate() {
     return createHeaderFiltersTemplate();
