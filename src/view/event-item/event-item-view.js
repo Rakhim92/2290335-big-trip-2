@@ -1,9 +1,11 @@
+// import { AbstractView } from '../../framework/view/abstract-view.js';
 import { createElement } from '../../render.js';
 import { createPointTemplate } from './event-item-template.js';
 
 
 export default class PointView {
   constructor({point, offers, destination}) {
+
     this.point = point;
     this.offers = offers;
     this.destination = destination;

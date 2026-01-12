@@ -1,4 +1,5 @@
 import { render, RenderPosition } from '../render.js';
+// import {render, RenderPosition} from '../framework/render.js';
 import SortView from '../view/sort/sort-view.js';
 import PointListView from '../view/event-list/event-list-view.js';
 import PointView from '../view/event-item/event-item-view.js';
@@ -27,7 +28,7 @@ export default class BoardPresenter {
       offers: this.pointModel.getAllOffersBySpecificType(this.modelBoardPoints[0].type),
       destination: this.pointModel.getDestinationById(this.modelBoardPoints[0].destination),
       checkedOffers: [...this.pointModel.getOfferById(this.modelBoardPoints[0].type, this.modelBoardPoints[0].offers)]
-    }), this.EventListComponent.getElement());
+    }), this.EventListComponent.element);
 
     // Рендер последующих поинтов
     for (let i = 1; i < this.modelBoardPoints.length; i++) {
@@ -35,7 +36,7 @@ export default class BoardPresenter {
         point: this.modelBoardPoints[i],
         offers: [...this.pointModel.getOfferById(this.modelBoardPoints[i].type, this.modelBoardPoints[i].offers)],
         destination: this.pointModel.getDestinationById(this.modelBoardPoints[0].destination)
-      }), this.EventListComponent.getElement());
+      }), this.EventListComponent.element);
     }
     render(this.CreationMenuComponent, this.container);
   }

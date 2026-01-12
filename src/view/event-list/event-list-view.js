@@ -1,5 +1,7 @@
+// import AbstractView from '../../framework/view/abstract-view.js';
 import { createElement } from '../../render.js';
 import { createListTemplate } from './event-list-template.js';
+
 
 export default class PointListView {
 
