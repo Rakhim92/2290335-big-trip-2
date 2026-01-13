@@ -1,4 +1,4 @@
-import {render, RenderPosition} from '../framework/render.js';
+import {render, RenderPosition, replace} from '../framework/render.js';
 import SortView from '../view/sort/sort-view.js';
 import PointListView from '../view/event-list/event-list-view.js';
 import PointView from '../view/event-item/event-item-view.js';
@@ -26,12 +26,43 @@ export default class BoardPresenter {
   }
 
   #renderPoint(task) {
-    const pointComponent = new PointView({
+    const escKeyDownHandler = (evt) => {
+      if (evt.key === 'Escape') {
+        evt.preventDefault();
+        replaceFormToCard();
+        document.removeEventListener('keydown', escKeyDownHandler);
+      }
+    };
+    const taskComponent = new PointView({
       point: task,
       offers: [...this.offerModel.getOfferById(task.type, task.offers)],
-      destination: this.destinationModel.getDestinationById(task.destination)
+      destination: this.destinationModel.getDestinationById(task.destination),
+      onEditClick: () => {
+        replaceCardToForm();
+        document.addEventListener('keydown', escKeyDownHandler);
+      }
     });
-    render(pointComponent, this.EventListComponent.element);
+    console.log(taskComponent)
+    const taskEditComponent = new EditFormView({
+      point: task,
+      offers: [...this.offerModel.getOfferById(task.type, task.offers)],
+      destination: this.destinationModel.getDestinationById(task.destination),
+      checkedOffers: [...this.offerModel.getOfferById(task.type, task.offers)],
+      onFormSubmit: () => {
+        replaceFormToCard();
+        document.removeEventListener('keydown', escKeyDownHandler);
+      }
+    });
+    console.log(taskEditComponent)
+    function replaceCardToForm() {
+      replace(taskEditComponent, taskComponent);
+    }
+
+    function replaceFormToCard() {
+      replace(taskComponent, taskEditComponent);
+    }
+
+    render(taskComponent, this.EventListComponent.element);
   }
 
 }

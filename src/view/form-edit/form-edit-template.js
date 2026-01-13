@@ -40,7 +40,7 @@ function getOfferTemplate(offer, checkedOffers) {
   );
 }
 
-function getAllOffersTemplate({offers}, checkedOffers) {
+function getAllOffersTemplate(offers, checkedOffers) {
   return offers.length > 0 ? `
     <section class="event__section  event__section--offers">
       <h3 class="event__section-title  event__section-title--offers">Offers</h3>
