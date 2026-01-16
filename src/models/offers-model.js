@@ -1,6 +1,6 @@
 import { mockOffers } from '../mock/offers.js';
 
-export default class OfferModel {
+export default class OffersModel {
   #offers = mockOffers;
   // Все возможные офферы
   getAllOffers() {

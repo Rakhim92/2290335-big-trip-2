@@ -8,7 +8,6 @@ export default class MainPresenter {
   constructor(pointModel, offerModel, destinationModel) {
     this.headerPresenter = new HeaderPresenter({container: headerContainerElement});
     this.boardPresenter = new BoardPresenter({container: pageContainerElement, pointModel, offerModel, destinationModel});
-    this.pointModel = pointModel;
   }
 
   init () {

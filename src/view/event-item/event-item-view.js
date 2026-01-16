@@ -3,7 +3,12 @@ import { createPointTemplate } from './event-item-template.js';
 
 export default class PointView extends AbstractView {
   #handleEditClick = null;
-  constructor({point, offers, destination, onEditClick}) {
+  constructor({
+    point,
+    offers,
+    destination,
+    onEditClick
+  }) {
     super();
     this.point = point;
     this.offers = offers;

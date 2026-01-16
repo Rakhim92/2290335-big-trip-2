@@ -1,6 +1,6 @@
 import { mockDestinations } from '../mock/destinations.js';
 
-export default class DestinationModel {
+export default class DestinationsModel {
   #destinations = mockDestinations;
   // Все возможные маршруты
   getAllDestinations() {

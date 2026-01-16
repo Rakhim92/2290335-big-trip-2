@@ -2,10 +2,12 @@ import { getRandomPoint } from '../mock/points.js';
 
 const POINTS_COUNT = 3;
 
-export default class PointModel {
+export default class PointsModel {
   #points = Array.from({length: POINTS_COUNT}, getRandomPoint);
+
   // Все возможные поинты
   getAllPoints() {
     return this.#points;
   }
 }
+

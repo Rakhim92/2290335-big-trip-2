@@ -8,7 +8,12 @@ export default class BoardPresenter {
   sortComponent = new SortView();
   EventListComponent = new PointListView();
 
-  constructor({ container, pointModel, offerModel, destinationModel }) {
+  constructor({
+    container,
+    pointModel,
+    offerModel,
+    destinationModel
+  }) {
     this.container = container;
     this.pointModel = pointModel;
     this.offerModel = offerModel;
@@ -42,7 +47,7 @@ export default class BoardPresenter {
         document.addEventListener('keydown', escKeyDownHandler);
       }
     });
-    console.log(taskComponent)
+
     const taskEditComponent = new EditFormView({
       point: task,
       offers: [...this.offerModel.getOfferById(task.type, task.offers)],
@@ -51,9 +56,13 @@ export default class BoardPresenter {
       onFormSubmit: () => {
         replaceFormToCard();
         document.removeEventListener('keydown', escKeyDownHandler);
+      },
+      onFormClose: () => {
+        replaceFormToCard();
+        document.removeEventListener('keydown', escKeyDownHandler);
       }
     });
-    console.log(taskEditComponent)
+
     function replaceCardToForm() {
       replace(taskEditComponent, taskComponent);
     }
