@@ -10,6 +10,7 @@ export default class BoardPresenter {
   #pointModel = null;
   #offerModel = null;
   #destinationModel = null;
+  #taskPresenters = new Map();
 
   constructor({
     container,
@@ -38,6 +39,12 @@ export default class BoardPresenter {
       taskListContainer: this.#eventListComponent.element,
     });
     taskPresenter.init(task, proposals, purposes);
+    this.#taskPresenters.set(task.id, taskPresenter);
+  }
+
+  #clearTaskList() {
+    this.#taskPresenters.forEach((presenter) => presenter.destroy());
+    this.#taskPresenters.clear();
   }
 
 }

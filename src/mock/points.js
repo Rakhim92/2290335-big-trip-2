@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import { getRandomArrayElement } from '../utils.js';
 
 // Структура данных точек маршрута Points
@@ -119,7 +120,9 @@ const mockPoints = [
 ];
 
 function getRandomPoint() {
-  return getRandomArrayElement(mockPoints);
+  const randomPoint = getRandomArrayElement(mockPoints);
+  randomPoint.id = nanoid();
+  return randomPoint;
 }
 
 export { getRandomPoint };
