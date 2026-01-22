@@ -21,16 +21,22 @@ export default class TaskPresenter {
   #handleModeChange = null;
   #mode = Mode.DEFAULT;
 
-  constructor({taskListContainer, onDataChange, onModeChange}) {
+  constructor({
+    taskListContainer,
+    offers,
+    destinations,
+    onDataChange,
+    onModeChange
+  }) {
     this.#taskListContainer = taskListContainer;
+    this.#offers = offers;
+    this.#destinations = destinations;
     this.#handleDataChange = onDataChange;
     this.#handleModeChange = onModeChange;
   }
 
-  init(task, proposals, purposes) {
+  init(task) {
     this.#task = task;
-    this.#offers = proposals;
-    this.#destinations = purposes;
 
     const prevTaskComponent = this.#taskComponent;
     const prevTaskEditComponent = this.#taskEditComponent;
